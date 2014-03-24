@@ -1,0 +1,16 @@
+.get-widget-settings label {
+	width: 200px;
+	float: left;
+}
+
+.get-widget-settings div {
+	margin-bottom: 10px;
+}
+
+.get-widget-code {
+	margin-top: 15px;
+}
+
+#category_suggest {
+	position: relative;
+}
