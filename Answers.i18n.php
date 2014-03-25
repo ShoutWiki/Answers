@@ -14,6 +14,7 @@ $messages = array();
 
 /** English */
 $messages['en'] = array(
+	'answers-desc' => 'Questions & answers tools, such as [[Special:GetQuestionWidget|a special page to get a question widget for your site]] and [[Special:CreateQuestionPage|a special page to create new questions]]',
 	'answer_title' => 'Answer',
 	'answered_by' => 'Answered by',
 	'answers-no-recently-asked-questions' => "$1 hasn't asked any questions recently.",

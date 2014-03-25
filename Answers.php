@@ -30,9 +30,7 @@ $wgExtensionCredits['other'][] = array(
 		'Maciej Brencz', 'Maciej Błaszkowski', 'Adrian Wieczorek',
 		'Nick Sullivan', 'Sean Colombo', 'David Pean', 'Jack Phoenix'
 	),
-	'description' => 'Questions & answers tools, such as ' .
-		'[[Special:GetQuestionWidget|a special page to get a question widget for your site]]' .
-		' and [[Special:CreateQuestionPage|a special page to create new questions]]',
+	'descriptionmsg' => 'answers-desc',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Answers',
 );
 
