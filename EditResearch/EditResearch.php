@@ -46,12 +46,12 @@ function addEditResearch( $editPage ) {
 	global $wgOut, $wgEditResearchNamespaces;
 
 	$title = $editPage->getTitle();
-	// Only add for enabled namespaces or for NS_ANSWER if $wgEditResearchNamespaces isn't defined
+	// Only add for enabled namespaces or for NS_MAIN if $wgEditResearchNamespaces isn't defined
 	if ( !empty( $wgEditResearchNamespaces ) ) {
 		if ( $wgEditResearchNamespaces[$title->getNamespace()] != true ) {
 			return true;
 		}
-	} elseif ( $title->getNamespace() != NS_ANSWER ) {
+	} elseif ( $title->getNamespace() != NS_MAIN ) {
 		return true;
 	}
 

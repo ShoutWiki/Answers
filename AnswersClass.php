@@ -62,7 +62,7 @@ class Answer {
 			return false;
 		}
 
-		if ( $this->title->getNamespace() == NS_ANSWER ) {
+		if ( $this->title->getNamespace() == NS_MAIN ) {
 			return true;
 		}
 

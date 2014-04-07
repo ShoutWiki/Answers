@@ -13,8 +13,8 @@ class AnswersHooks {
 	 * @return Boolean: true
 	 */
 	public static function createCanonicalNamespaces( &$list ) {
-		$list[NS_ANSWER] = 'Answer';
-		$list[NS_ANSWER_TALK] = 'Answer_talk';
+		$list[NS_MAIN] = 'Answer';
+		$list[NS_MAIN_TALK] = 'Answer_talk';
 		return true;
 	}
 
@@ -300,7 +300,7 @@ class AnswersHooks {
 				'page_id = rc_cur_id',
 				'rc_new' => 1,
 				'rc_user' => $user_profile->user_id,
-				'page_namespace' => NS_ANSWER,
+				'page_namespace' => NS_MAIN,
 				'page_is_redirect' => 0
 			),
 			__METHOD__,
@@ -317,7 +317,7 @@ class AnswersHooks {
 			$html .= wfMessage( 'answers-no-recently-asked-questions', $user_profile->user_name )->parse();
 		} else {
 			foreach ( $res as $row ) {
-				$questionTitle = Title::makeTitle( NS_ANSWER, $row->page_title );
+				$questionTitle = Title::makeTitle( NS_MAIN, $row->page_title );
 				// question mark might already be there
 				$question = $questionTitle->getText();
 				if ( $question[strlen( $question ) - 1] != '?' ) {
@@ -362,7 +362,7 @@ class AnswersHooks {
 				'page_id = rc_cur_id',
 				'rc_new' => 0,
 				'rc_user' => $user_profile->user_id,
-				'page_namespace' => NS_ANSWER,
+				'page_namespace' => NS_MAIN,
 				'page_is_redirect' => 0
 			),
 			__METHOD__,
@@ -379,7 +379,7 @@ class AnswersHooks {
 			$html .= wfMessage( 'answers-no-recently-edited-questions', $user_profile->user_name )->parse();
 		} else {
 			foreach ( $res as $row ) {
-				$questionTitle = Title::makeTitle( NS_ANSWER, $row->page_title );
+				$questionTitle = Title::makeTitle( NS_MAIN, $row->page_title );
 				// question mark might already be there
 				$question = $questionTitle->getText();
 				if ( $question[strlen( $question ) - 1] != '?' ) {
