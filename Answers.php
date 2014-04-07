@@ -154,8 +154,6 @@ $wgSkinTheme['answers'] = array(
 );
 */
 include( 'NewSkin/NewSkin.php' );
-$wgDefaultSkin = 'answers';
-$wgDefaultTheme = 'bluebell';
 
 // make SkinChooser work for Answers
 /*

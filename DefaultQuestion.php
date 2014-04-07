@@ -34,7 +34,7 @@ class DefaultQuestion {
 			}
 		}
 
-		$this->title = Title::makeTitleSafe( NS_ANSWER, $question );
+		$this->title = Title::makeTitleSafe( NS_MAIN, $question );
 		if ( !$this->title ) {
 			return null;
 		}
