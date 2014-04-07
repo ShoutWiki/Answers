@@ -13,8 +13,8 @@ class AnswersHooks {
 	 * @return Boolean: true
 	 */
 	public static function createCanonicalNamespaces( &$list ) {
-		$list[NS_MAIN] = 'Answer';
-		$list[NS_MAIN_TALK] = 'Answer_talk';
+		$list[NS_MAIN] = '(Main)';
+		$list[NS_TALK] = 'Talk';
 		return true;
 	}
 
