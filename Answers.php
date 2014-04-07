@@ -34,18 +34,6 @@ $wgExtensionCredits['other'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Answers',
 );
 
-// Grumble grumble...
-// These need to be defined here, *too*, in addition to the .namespaces.php file
-// so that when AnswersHooks.php tries to use these constants, we don't get notices
-// about undefined constants
-if ( !defined( 'NS_ANSWER' ) ) {
-	define( 'NS_ANSWER', 230 );
-}
-
-if ( !defined( 'NS_ANSWER_TALK' ) ) {
-	define( 'NS_ANSWER_TALK', 231 );
-}
-
 // Set up i18n, autoload classes and include the various sub-extensions
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Answers'] = $dir . 'Answers.i18n.php';
