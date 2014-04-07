@@ -6,19 +6,6 @@
 class AnswersHooks {
 
 	/**
-	 * Register the canonical names for the namespace and talkspace.
-	 *
-	 * @param $list Array: array of namespace numbers and their
-	 *                     corresponding canonical names
-	 * @return Boolean: true
-	 */
-	public static function createCanonicalNamespaces( &$list ) {
-		$list[NS_MAIN] = '(Main)';
-		$list[NS_TALK] = 'Talk';
-		return true;
-	}
-
-	/**
 	 * Injects ads into category pages.
 	 * Hooked into the CategoryPageView hook.
 	 *
