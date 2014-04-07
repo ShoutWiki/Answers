@@ -37,7 +37,6 @@ $wgExtensionCredits['other'][] = array(
 // Set up i18n, autoload classes and include the various sub-extensions
 $dir = dirname( __FILE__ ) . '/';
 $wgExtensionMessagesFiles['Answers'] = $dir . 'Answers.i18n.php';
-$wgExtensionMessagesFiles['AnswersNamespaces'] = $dir . 'Answers.namespaces.php';
 // Didn't do anything when called in GetQuestionWidget.php
 $wgExtensionMessagesFiles['GetQuestionWidget'] = dirname( __FILE__ ) . '/GetQuestionWidget/GetQuestionWidget.i18n.php';
 
@@ -82,9 +81,6 @@ $wgAnswerHelperIDs = array(
 );
 
 // Over 9000 hooked functions
-
-// Add the Answers namespace
-$wgHooks['CanonicalNamespaces'][] = 'AnswersHooks::createCanonicalNamespaces';
 
 $wgHooks['AddNewAccount'][] = 'AnswersHooks::questionAttributionRegister';
 $wgHooks['UserLoginComplete'][] = 'AnswersHooks::questionAttributionLogin';
