@@ -57,15 +57,6 @@ $wgSpecialPages['GetQuestionWidget'] = 'GetQuestionWidget';
 
 $wgAutoloadClasses['EditResearch'] = $dir . 'EditResearch/EditResearch.php';
 
-/**
-TESTING
-*/
-$wgResourceModules['answers_css'] = array(
-	'styles' => array( 'extensions/Answers/Skins/vector.css' => array( 'media' => 'screen' ) )
-);
-
-
-
 //include( $dir . 'customUserCreateForm.php' );
 //include( $dir . 'TrackCategories.php' );
 //include( $dir . 'TrackMainPage.php' );
