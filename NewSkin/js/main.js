@@ -140,35 +140,6 @@ jQuery( document ).ready( function() {
 	jQuery( document ).click( closeMenus);
 });
 
-// Google ads
-function google_ad_request_done( google_ads ) {
-	if ( !wgIsQuestion ) {
-		return;
-	}
-	google_ad_render( google_ads, 1 );
-	google_ad_render( google_ads, 2 );
-	google_ad_render( google_ads, 3 );
-	google_ad_render( google_ads, 4 );
-}
-
-function google_ad_render( google_ads, i ) {
-	i = i - 1;
-	if( google_ads[i] ) {
-		var s = '';
-		s += '<a href="' + google_info.feedback_url + '" class="google_label">' + mw.msg( 'ads_by_google' ) + '</a><br />';
-		s += '<a style="text-decoration:none" href="' +
-			google_ads[i].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
-			google_ads[i].visible_url + '\';return true" class="google_link">' +
-			google_ads[i].line1 + '<br /></a> <span class="google_description">' +
-			google_ads[i].line2 + ' ' +
-			google_ads[i].line3 + '<br /></span> <span><a href="' +
-			google_ads[i].url + '" onmouseout="window.status=\'\'" onmouseover="window.status=\'go to ' +
-			google_ads[i].visible_url + '\';return true" class="google_url">' +
-			google_ads[i].visible_url + '</span></a><br />';
-		jQuery( '#google_ad_' + ( i + 1 ) ).html( s );
-	}
-}
-
 // YUI helper functions
 
 // Make fade and appear become show/hide
