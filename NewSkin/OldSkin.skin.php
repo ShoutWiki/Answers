@@ -119,7 +119,6 @@ class SkinAnswersOld extends SkinMonaco {
 		$vars['wgIsAnswered'] = false;
 		$vars['wgAnsweredCategory'] = wfMsg( 'answered_category' );
 		$vars['wgUnAnsweredCategory'] = wfMsg( 'unanswered_category' );
-		$vars['wgAdsByGoogleMsg'] = wfMsg( 'ads_by_google' );
 		$vars['wgUnansweredRecentChangesURL'] = $wgServer . str_replace( '$1', 'Special:RecentChangesLinked/' . $wgContLang->getNsText( NS_CATEGORY ) . ':' . wfMsgForContent( 'unanswered_category' ), $wgArticlePath ); #"http://answers.wikia.com/wiki/Special:RecentChangesLinked/Category:un-answered questions";
 		$vars['wgUnansweredRecentChangesText'] = wfMsg( 'see_all' );
 		$vars['wgCategoryName'] = $wgContLang->getNsText( NS_CATEGORY );
