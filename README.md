@@ -31,9 +31,6 @@ The original release contained only the directories "FacebookConnect",
 "templates" and "tests". I moved some other Answers-specific stuff here in an
 attempt to keep things centralized.
 
-* AdsenseForSearch
-    * an extension for displaying Google AdSense ads on search results pages.
-    * used by the Answers skin
 * api
     * MediaWiki API modules, called by various things
 * CategoryHubs

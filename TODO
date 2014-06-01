@@ -1,0 +1,5 @@
+- Support for any skin
+-- Probably requires rewriting most of the code, but worthwhile
+-- Essentially just add a large "Ask a question" input box above the page title on every page
+- A GUI special page for asking questions maybe? Alongside the above TODO item of course
+- After the extension works, aim for having it be supported by MediaWiki 1.21+

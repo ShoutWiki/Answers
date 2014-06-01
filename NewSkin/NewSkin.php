@@ -50,7 +50,7 @@ $wgResourceModules['skins.answers'] = array(
 	'messages' => array(
 		'ask_a_question', 'in_category', 'answer_title', 'movepagebtn',
 		'delete', 'save', 'categorize', 'categorize_help', 'next_page',
-		'prev_page', 'more', 'quick_action_panel', 'ads_by_google', 'see_all'
+		'prev_page', 'more', 'quick_action_panel', 'see_all'
 	),
 	'position' => 'top'
 );
