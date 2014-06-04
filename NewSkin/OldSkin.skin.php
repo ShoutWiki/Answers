@@ -398,6 +398,13 @@ class AnswersOldTemplate extends MonacoTemplate {
 			<?php if( $this->data['undelete'] ) { ?><div id="contentSub2"><?php $this->html('undelete') ?></div><?php } ?>
 			<?php if( $this->data['newtalk'] ) { ?><div class="usermessage noprint"><?php $this->html('newtalk') ?></div><?php } ?>
 			<?php if( $this->data['showjumplinks'] ) { ?><div id="jump-to-nav"><?php $this->msg('jumpto') ?> <a href="#column-one"><?php $this->msg('jumptonavigation') ?></a>, <a href="#search_input"><?php $this->msg('jumptosearch') ?></a></div><?php } ?>
+			<?php
+			// AdSense for search
+			global $wgAFSEnabled;
+			if( $wgAFSEnabled && $wgTitle->getLocalURL() == $this->data['searchaction'] && !$wgUser->isLoggedIn() ) {
+				//renderAdsenseForSearch( 'w2n8', '7000000004' ); // @todo FIXME: wikia's codes
+			}
+			?>
 			<!-- start content -->
 			<?php $this->html( 'bodytext' ) ?>
 			<!-- end content -->
@@ -407,6 +414,44 @@ class AnswersOldTemplate extends MonacoTemplate {
 		</div><!-- #bodyContent -->
 
 		<?php
+		if( $is_question && !$answer_page->isArticleAnswered() ) {
+			if( !( $wgRequest->getVal( 'diff' ) ) && $wgUser->isAnon() ) {
+				$ads = '<div id="ads-unaswered-bottom">
+				<script type="text/javascript">
+					google_ad_client = "pub-4086838842346968";
+					google_ad_channel = ( ( wgIsAnswered ) ? "7000000004" : "7000000003" );
+					google_ad_width	= "300";
+					google_ad_height = "250";
+					google_ad_format = google_ad_width + "x" + google_ad_height + "_as";
+					google_ad_type = "text";
+					google_color_link = "002BB8";
+					google_color_border = "FFFFFF";
+					google_hints = "' . $google_hints . '";
+				</script>
+				<script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+				</div>';
+				echo $ads;
+			}
+		} elseif ( $answer_page->isQuestion( true /* exists? */) && $answer_page->isArticleAnswered() ) {
+			// render attribution section
+			echo $this->renderAttributionBox( $answer_page );
+			if ( $wgUser->isAnon() ) {
+				$ads = '<script type="text/javascript">
+					google_ad_client = "pub-4086838842346968";
+					google_ad_channel = ( ( wgIsAnswered ) ? "7000000004" : "7000000003" );
+					google_ad_width = "468";
+					google_ad_height = "60";
+					google_ad_format = google_ad_width + "x" + google_ad_height + "_as";
+					google_ad_type = "text";
+					google_color_link = "002BB8";
+					google_color_border = "FFFFFF";
+					google_hints = "' . $google_hints . '";
+				</script>
+				<script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+				echo $ads;
+			}
+		}
+
 		global $wgTitle, $wgAnswersShowInlineRegister;
 		if( $wgAnswersShowInlineRegister && $wgUser->isAnon() && !$answer_page->isArticleAnswered() && $_GET['state'] == 'asked' ) {
 			$submit_title = SpecialPage::getTitleFor( 'Userlogin' );
@@ -477,6 +522,14 @@ class AnswersOldTemplate extends MonacoTemplate {
 				$watchlist_url = 'javascript:anonWatch();';
 			}
 		?>
+		<!--
+		<table id="bottom_ads">
+		<tr>
+			<td id="google_ad_1" class="google_ad"></td>
+			<td id="google_ad_2" class="google_ad"></td>
+		</tr>
+		</table>
+		-->
 		<?php
 		/*
 		<div id="huge_buttons" class="clearfix">
@@ -701,6 +754,11 @@ class AnswersOldTemplate extends MonacoTemplate {
 			<h2><?php echo wfMsg( 'recent_unanswered_questions' ) ?></h2>
 			<ul id="recent_unanswered_questions">
 			</ul>
+			<?php
+			if( $is_question ) {
+				echo '<li><div id="google_ad_1" class="google_ad"></div></li>';
+			}
+			?>
 		</div>
 
 		<div class="widget">
@@ -720,6 +778,9 @@ class AnswersOldTemplate extends MonacoTemplate {
 						echo '<li><a href="' . $popular_category['href'] . '">' . $popular_category['text'] . '</a></li>';
 					}
 				}
+				if ( $is_question ) {
+					echo '<li><div id="google_ad_2" class="google_ad"></div></li>';
+				}
 				?>
 			</ul>
 		</div>
@@ -737,6 +798,18 @@ class AnswersOldTemplate extends MonacoTemplate {
 
 -->
 <?php endif; ?>
+<script>
+google_ad_client = 'pub-4086838842346968'; // substitute your client_id (pub-#)
+google_ad_channel = ( ( wgIsAnswered ) ? '7000000004' : '7000000003' );
+google_ad_output = 'js';
+google_max_num_ads = '10';
+google_ad_type = 'text';
+google_feedback = 'on';
+<?php
+echo 'google_hints = "' . $google_hints . '";';
+?>
+</script>
+<script language="JavaScript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
 <div id="positioned_elements" class="reset"></div>
 
 </body></html>
